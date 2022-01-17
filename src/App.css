@@ -12,6 +12,43 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.nav-main {
+  background-color: #61dafb;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.nav-div {
+  padding: 5px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 5px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  -webkit-border-radius: 32px;
+  width: 50%;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-color: #282c34;
+  border-style: solid;
+}
+.remove-btn {
+  padding: 5px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 5px;
+  background-color: rgb(88, 169, 240);
+  border-radius: 5px;
+  -webkit-border-radius: 32px;
+  width: auto;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-color: #282c34;
+  border-style: solid;
+}
 .main-H1 {
   position: static;
   text-align: center;
@@ -28,18 +65,42 @@
   justify-content: space-around;
   align-items: center;
 }
+.review-form {
+  margin-top: 40px;
+  background-color: aliceblue;
+  border: blue 1px solid;
+  border-radius: 10%;
+  padding: 39px;
+}
+.input-outer-container {
+  display: flex;
+  flex-direction: row;
+  border: red 1px solid;
+  margin: 20px;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 48px;
+}
+.input-inner {
+  width: 50%;
+  height: max-content;
+  margin: 13px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
 .divStyle {
-  height: 320px;
-  width: 1fr;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 2px solid;
-  width: fit-content;
+  padding: 10px;
 }
+
 .imgStyle {
-  width: 1fr;
+  /* width: 1fr; */
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -47,6 +108,13 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-content: space-between;
+  /* margin-top: -4px; */
+}
+.imgStyle:hover {
+  width: 200%;
+}
+.poster:hover {
+  width: 600px;
 }
 .mainDivStyle {
   max-width: 100%;
