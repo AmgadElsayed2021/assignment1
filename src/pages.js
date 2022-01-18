@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// import { Form, Button } from "semantic-ui-react";
+// import jsonfile from "jsonfile";
 // import "./index.css";
 
 export function Ratings() {
@@ -90,7 +92,7 @@ function Movie(props) {
         </div>
       </div>
       <div className="remove-btn">
-        <button>Remove</button>
+        <button className="delete">Remove</button>
       </div>
     </div>
   );
