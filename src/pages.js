@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // import { Form, Button } from "semantic-ui-react";
 // import jsonfile from "jsonfile";
@@ -15,14 +15,7 @@ export function Ratings() {
   );
 }
 
-export function Home() {
-  let [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    fetch("./movies.json")
-      .then((response) => response.json())
-      .then(setMovies);
-  }, []);
+export function Home({ movies = [], onRemoveMovie = (f) => f }) {
   // console.log(movies);
 
   return (
@@ -30,18 +23,18 @@ export function Home() {
       <Header />
 
       <div className="mainDivStyle">
-        {movies.map((movie, i) => {
-          return (
-            <Movie
-              key={i}
-              title={movie.Title}
-              actors={movie.Actors}
-              poster={movie.Poster}
-              rating={movie.Rating}
-              release={movie.Released}
-            ></Movie>
-          );
-        })}
+        {movies.map((movie, i) => (
+          <Movie
+            // {...movie}
+            key={i}
+            Title={movie.Title}
+            Actors={movie.Actors}
+            Poster={movie.Poster}
+            Rating={movie.Rating}
+            Release={movie.Released}
+            onRemove={onRemoveMovie}
+          ></Movie>
+        ))}
       </div>
     </div>
   );
@@ -62,41 +55,57 @@ function Header() {
     </header>
   );
 }
-function Movie(props) {
+export default function Movie({
+  Title,
+  Poster,
+  Released,
+  Actors,
+  Rating,
+  onRemove = (f) => f,
+}) {
+  // console.log(props);
   return (
     <div className="movie-frame">
       <div className="imgStyle">
         <img
           className="poster"
-          src={"./images/" + props.poster}
-          alt={props.title}
+          src={"./images/" + Poster}
+          alt={Title}
           width={300}
           height={400}
         />
       </div>
       <div className="divStyle">
         <div>
-          <h2>Movie Name: {props.title}</h2>
+          <h2>Movie Name: {Title}</h2>
         </div>
         <div className="movieBox">
-          <p> Released: {props.release}</p>
+          <p> Released: {Released}</p>
         </div>
         <div>
           <p>
-            Main Actors :{props.actors[0]} ,{props.actors[1]} ,{props.actors[2]}
-            and {props.actors[3]}
+            Main Actors :{Actors[0]} ,{Actors[1]} ,{Actors[2]}
+            and {Actors[3]}
           </p>
         </div>
         <div>
-          <p>Movie Rating : {props.rating}</p>
+          <p>Movie Rating : {Rating}</p>
         </div>
       </div>
       <div className="remove-btn">
-        <button className="delete">Remove</button>
+        <button
+          className="delete"
+          onClick={() => {
+            onRemove(Title);
+          }}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
 }
+//
 function MovieForm() {
   return (
     <form action="">
