@@ -22,10 +22,10 @@ function App() {
               movies={movies}
               onRemoveMovie={(title) => {
                 // console.log(title);
-                const newFilms = movies.filter(
+                const updatedMovies = movies.filter(
                   (movie) => movie.Title !== title
                 );
-                setMovies(newFilms);
+                setMovies(updatedMovies);
                 console.log(movies);
               }}
             />
