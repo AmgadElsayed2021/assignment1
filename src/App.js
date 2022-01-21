@@ -34,7 +34,17 @@ function App() {
         />
         <Route
           path="/ratings"
-          element={<Ratings movies={movies} formData={FormData} />}
+          element={
+            <Ratings
+              newReview={(Title, Actors, Poster, Rating, Released) => {
+                const Review = [
+                  ...movies,
+                  { Title, Actors, Poster, Rating, Released },
+                ];
+                setMovies(Review);
+              }}
+            />
+          }
         />
         console.log(formData)
       </Routes>

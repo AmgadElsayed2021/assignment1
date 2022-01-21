@@ -115,6 +115,7 @@ const initialFormData = Object.freeze({
   Poster: "",
 });
 //  here gors the form route code
+// newReview(Title, Actors, Poster, Rating, Released)
 function MovieForm() {
   const [formData, updateFormData] = React.useState(initialFormData);
 
@@ -131,6 +132,14 @@ function MovieForm() {
     e.preventDefault();
     JSON.stringify(formData);
     console.log(formData);
+
+    // newReview(
+    //   formData.Title,
+    //   formData.Actors.split(", "),
+    //   formData.Poster,
+    //   formData.Rating,
+    //   formData.Released
+    // );
   };
   return (
     <form action="">
