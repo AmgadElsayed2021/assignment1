@@ -1,7 +1,7 @@
 [
   {
     "Title": "Avatar",
-    "Rating": 5,
+    "Rating": "5",
     "Released": "18 Dec 2009",
     "Actors": [
       "Sam Worthington",
@@ -13,7 +13,7 @@
   },
   {
     "Title": "I Am Legend",
-    "Rating": 4.5,
+    "Rating": "4.5",
     "Released": "14 Dec 2007",
     "Actors": [
       "Will Smith",
@@ -25,14 +25,14 @@
   },
   {
     "Title": "300",
-    "Rating": 4.6,
+    "Rating": "4.6",
     "Released": "09 Mar 2007",
     "Actors": ["Gerard Butler", "Lena Headey", "Dominic West", "David Wenham"],
     "Poster": "300.jpg"
   },
   {
     "Title": "The Avengers",
-    "Rating": 4.8,
+    "Rating": "4.8",
     "Released": "04 May 2012",
     "Actors": [
       "Robert Downey Jr.",
@@ -45,7 +45,7 @@
 
   {
     "Title": "Interstellar",
-    "Rating": 4.8,
+    "Rating": "4.8",
     "Released": "07 Nov 2014",
     "Actors": [
       "Ellen Burstyn",
@@ -58,7 +58,7 @@
 
   {
     "Title": "Gotham",
-    "Rating": 3.6,
+    "Rating": "3.6",
     "Released": "01 Aug 2014",
     "Actors": [
       "Ben McKenzie",

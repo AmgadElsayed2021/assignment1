@@ -39,6 +39,7 @@ export function Home({ movies = [], onRemoveMovie = (f) => f }) {
     </div>
   );
 }
+//  here goes the routes
 function Header() {
   return (
     <header>
@@ -105,67 +106,108 @@ export default function Movie({
     </div>
   );
 }
-//
+// create the movie form proto
+const initialFormData = Object.freeze({
+  Title: "",
+  Rating: "",
+  Released: "",
+  Actors: "",
+  Poster: "",
+});
+//  here gors the form route code
 function MovieForm() {
+  const [formData, updateFormData] = React.useState(initialFormData);
+
+  const handleChange = (e) => {
+    updateFormData({
+      ...formData,
+
+      // Trimming any whitespace
+      [e.target.name]: e.target.value.trim(),
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    JSON.stringify(formData);
+    console.log(formData);
+  };
   return (
     <form action="">
       <div className="review-form">
         <div className="input-outer-container">
           <div className="input-inner">
-            <label for="title">Movie Title:</label>
+            <label>Movie Title:</label>
           </div>
           <div className="input-inner">
-            <input type="text" id="title" name="title" />
+            <input
+              type="text"
+              id="title"
+              name="Title"
+              onChange={handleChange}
+            />
           </div>
         </div>
 
         <div className="input-outer-container">
           <div className="input-inner">
-            <label for="Actors">Actors:</label>
-          </div>{" "}
+            <label>Actors:</label>
+          </div>
           <div className="input-inner">
-            <input type="text" id="movie-actors" name="movie-actors"></input>
+            <input
+              type="text"
+              id="movie-actors"
+              name="Actors"
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="input-outer-container">
+          <div className="input-inner">
+            <label>Release Date:</label>
+          </div>
+          <div className="input-inner">
+            <input
+              type="date"
+              id="releaseDate"
+              name="Released"
+              onChange={handleChange}
+            />
           </div>
         </div>
         <div className="input-outer-container">
           <div className="input-inner">
-            <label for="release-date">Release Date:</label>
-          </div>{" "}
-          <div className="input-inner">
-            <input type="date" id="releaseDate" name="release-date"></input>
+            <label>Rating:</label>
           </div>
-        </div>
-        <div className="input-outer-container">
-          {" "}
-          <div className="input-inner">
-            <label for="movie-rating">Rating:</label>
-          </div>{" "}
           <div className="input-inner">
             <input
               type="number"
               id="movie-rating"
-              name="movie-rating"
+              name="Rating"
               min={1}
               max={5}
-            ></input>
+              onChange={handleChange}
+            />
           </div>
         </div>
         <div className="input-outer-container">
-          {" "}
           <div className="input-inner">
-            <label for="movie-poster">Movie Poster:</label>
-          </div>{" "}
+            <label>Movie Poster:</label>
+          </div>
           <div className="input-inner">
             <input
               type="file"
               multiple
               accept=" image/*"
               id="movie-poster"
-            ></input>
+              name="Poster"
+              onChange={handleChange}
+            />
           </div>
         </div>
-
-        <input type="submit" value="Submit" />
+        <button onClick={handleSubmit}>Submit</button>
+        {/* <input type="submit" value="Submit" /> */}
       </div>
     </form>
   );

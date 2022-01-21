@@ -3,6 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, Ratings } from "./pages";
 import { useState, useEffect } from "react";
+import FormData from "form-data";
 
 function App() {
   let [movies, setMovies] = useState([]);
@@ -31,7 +32,11 @@ function App() {
             />
           }
         />
-        <Route path="/ratings" element={<Ratings />} />
+        <Route
+          path="/ratings"
+          element={<Ratings movies={movies} formData={FormData} />}
+        />
+        console.log(formData)
       </Routes>
     </div>
   );
